@@ -10,14 +10,16 @@ import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
 object GradlePluginId {
-    internal const val androidApplication = "com.android.application"
-    internal const val androidLibrary = "com.android.library"
-    internal const val kotlinAndroid = "kotlin-android"
-    internal const val kotlinParcelize = "kotlin-parcelize"
-    internal const val kotlinKapt = "kotlin-kapt"
-    internal const val kotlin = "kotlin"
-    internal const val daggerHilt = "dagger.hilt.android.plugin"
-    internal const val jacoco = "com.vanniktech.android.junit.jacoco"
+    const val androidApplication = "com.android.application"
+    const val androidLibrary = "com.android.library"
+    const val kotlinAndroid = "kotlin-android"
+    const val kotlinParcelize = "kotlin-parcelize"
+    const val kotlinKapt = "kotlin-kapt"
+    const val kotlin = "kotlin"
+    const val daggerHilt = "dagger.hilt.android.plugin"
+    const val jacoco = "com.vanniktech.android.junit.jacoco"
+    const val ktlint = "org.jlleitschuh.gradle.ktlint"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 }
 
 val PluginDependenciesSpec.androidApplication: PluginDependencySpec
