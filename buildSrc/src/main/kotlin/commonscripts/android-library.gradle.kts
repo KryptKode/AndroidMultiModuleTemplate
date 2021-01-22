@@ -1,14 +1,10 @@
 package commonscripts
 
-private object BuildTypes {
-    const val DEBUG = "debug"
-    const val RELEASE = "release"
-}
 
 plugins {
-    id("com.android.library") apply false
-    id("kotlin-android") apply false
-    id("kotlin-parcelize") apply false
+    `android-library` apply false
+    `kotlin-android` apply false
+    `kotlin-parcelize` apply false
 }
 
 android {
@@ -23,7 +19,6 @@ android {
         buildTypes {
             getByName(BuildTypes.DEBUG) {
                 isMinifyEnabled = false
-                applicationIdSuffix = ".${BuildTypes.DEBUG}"
                 isDebuggable = true
             }
             getByName(BuildTypes.RELEASE) {

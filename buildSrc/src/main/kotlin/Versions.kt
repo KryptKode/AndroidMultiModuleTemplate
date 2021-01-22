@@ -11,7 +11,23 @@ import org.gradle.plugin.use.PluginDependencySpec
  * YOU are responsible for updating manually the dependency version.
  */
 object Versions {
-    const val org_jetbrains_kotlin: String = "1.4.21"
+    const val org_jetbrains_kotlinx_kotlinx_coroutines: String = "1.4.2"
+
+    const val com_squareup_retrofit2: String = "2.9.0"
+
+    const val com_squareup_okhttp3: String = "4.9.0"
+
+    const val androidx_navigation: String = "2.3.2"
+
+    const val androidx_lifecycle: String = "2.2.0"
+
+    const val com_squareup_moshi: String = "1.11.0"
+
+    const val androidx_hilt: String = "1.0.0-alpha02"
+
+    const val androidx_room: String = "2.3.0-alpha04"
+
+    const val androidx_work: String = "2.4.0"
 
     const val com_android_tools_build_gradle: String = "4.1.1"
 
@@ -21,9 +37,43 @@ object Versions {
 
     const val de_fayard_buildsrcversions_gradle_plugin: String = "0.7.0"
 
+    const val kotlin_scripting_compiler_embeddable: String = "1.4.21" // available: "1.4.21-2"
+
+    const val kotlin_annotation_processing_gradle: String = "1.4.21" // available: "1.4.21-2"
+
+    const val hilt_android_gradle_plugin: String = "2.28.3-alpha"
+
+    const val kotlin_parcelize_compiler: String = "1.4.21" // available: "1.4.21-2"
+
+    const val kotlin_parcelize_runtime: String = "1.4.21" // available: "1.4.21-2"
+
+    const val hilt_android_compiler: String = "2.30.1-alpha"
+
+    const val kotlin_gradle_plugin: String = "1.4.21" // available: "1.4.21-2"
+
+    const val pageindicatorview: String = "1.0.3"
+
+    const val constraintlayout: String = "2.0.4"
+
+    const val circleimageview: String = "3.1.0"
+
     const val espresso_core: String = "3.3.0"
 
+    const val kotlin_stdlib: String = "1.4.21-2"
+
+    const val core_testing: String = "1.1.1"
+
+    const val fragment_ktx: String = "1.2.5"
+
+    const val hilt_android: String = "2.30.1-alpha"
+
+    const val javax_inject: String = "1"
+
     const val lint_gradle: String = "27.1.1"
+
+    const val viewbinding: String = "4.1.1"
+
+    const val viewpager2: String = "1.0.0"
 
     const val appcompat: String = "1.2.0"
 
@@ -31,7 +81,15 @@ object Versions {
 
     const val material: String = "1.2.1"
 
+    const val ktlint: String = "0.38.1" // available: "0.40.0"
+
+    const val timber: String = "4.7.1"
+
     const val aapt2: String = "4.1.1-6503028"
+
+    const val mockk: String = "1.10.4"
+
+    const val truth: String = "1.1"
 
     /**
      * Current version: "6.5"
