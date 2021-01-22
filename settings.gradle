@@ -1,3 +1,6 @@
-include ':domain'
+include ':common:androidShared'
+include ':common:testShared'
+include ':core'
+include ':navigation'
 include ':app'
-rootProject.name = "SwahPee"
+rootProject.name = "AndroidMultiModuleTemplate"
