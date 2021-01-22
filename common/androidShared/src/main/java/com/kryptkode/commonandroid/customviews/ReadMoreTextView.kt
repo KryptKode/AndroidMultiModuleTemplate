@@ -89,27 +89,47 @@ class ReadMoreTextView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun getTrimmedText(text: CharSequence?): CharSequence? {
-        if (trimMode == TRIM_MODE_LENGTH) {
-            if (text != null && text.length > trimLength) {
-                return if (readMore) {
+        return text?.let {
+            when (trimMode) {
+                TRIM_MODE_LENGTH -> {
+                    getTrimmedTextForLengthMode(text)
+                }
+                TRIM_MODE_LINES -> {
+                    getTrimmedTextForLineMode(text)
+                }
+                else -> {
+                    it
+                }
+            }
+        }
+    }
+
+    private fun getTrimmedTextForLineMode(text: CharSequence?): CharSequence? {
+        return text?.let {
+            if (lineEndIndex > 0 && readMore) {
+                if (layout.lineCount > trimLines) {
                     updateCollapsedText()
                 } else {
                     updateExpandedText()
                 }
+            } else {
+                it
             }
         }
-        if (trimMode == TRIM_MODE_LINES) {
-            if (text != null && lineEndIndex > 0) {
+    }
+
+    private fun getTrimmedTextForLengthMode(text: CharSequence?): CharSequence? {
+        return text?.let {
+            if (it.length > trimLength) {
                 if (readMore) {
-                    if (layout.lineCount > trimLines) {
-                        return updateCollapsedText()
-                    }
+                    updateCollapsedText()
                 } else {
-                    return updateExpandedText()
+                    updateExpandedText()
                 }
+            } else {
+                it
             }
         }
-        return text
     }
 
     private fun updateCollapsedText(): CharSequence {
@@ -213,16 +233,16 @@ class ReadMoreTextView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun refreshLineEndIndex() {
-        try {
-            if (trimLines == 0) {
-                lineEndIndex = layout.getLineEnd(0)
-            } else if (trimLines in 1..lineCount) {
-                lineEndIndex = layout.getLineEnd(trimLines - 1)
-            } else {
-                lineEndIndex = INVALID_END_INDEX
+        lineEndIndex = when (trimLines) {
+            0 -> {
+                layout.getLineEnd(0)
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            in 1..lineCount -> {
+                layout.getLineEnd(trimLines - 1)
+            }
+            else -> {
+                INVALID_END_INDEX
+            }
         }
     }
 

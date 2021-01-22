@@ -2,8 +2,8 @@ package com.kryptkode.commonandroid.logger
 
 import android.os.Build
 import com.kryptkode.commonandroid.BuildConfig
-import timber.log.Timber
 import java.util.regex.Pattern
+import timber.log.Timber
 
 /**
  * Created by kryptkode on 5/21/2020.
@@ -67,7 +67,6 @@ class LoggerImpl : Logger {
             DebugTreeTag::class.java.name
         )
 
-        private val maxTagLength = 23
         private val anonymousClassPattern =
             Pattern.compile("(\\$\\d+)+$")
 
@@ -79,9 +78,11 @@ class LoggerImpl : Logger {
             }
             tag = tag.substring(tag.lastIndexOf('.') + 1)
             // Tag length limit was removed in API 24.
-            return if (tag.length <= maxTagLength || Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return if (tag.length <= LOG_TAG_MAX_LENGTH ||
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+            ) {
                 tag
-            } else tag.substring(0, maxTagLength)
+            } else tag.substring(0, LOG_TAG_MAX_LENGTH)
         }
 
         fun getTag(): String {
@@ -89,5 +90,9 @@ class LoggerImpl : Logger {
                 .first { it.className !in fqcnIgnore }
                 .let(::createStackElementTag)
         }
+    }
+
+    companion object {
+        const val LOG_TAG_MAX_LENGTH = 23
     }
 }

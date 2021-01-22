@@ -4,6 +4,7 @@ plugins {
     kotlinParcelize
     kotlinKapt
     daggerHilt
+    jacoco
 }
 
 android {

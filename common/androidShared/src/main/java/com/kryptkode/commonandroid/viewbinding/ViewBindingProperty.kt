@@ -28,8 +28,12 @@ abstract class ViewBindingProperty<in R : Fragment, T : ViewBinding>(
             return binding
         }
 
-        if (!getLifecycleOwner(thisRef).lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-            throw IllegalStateException("Should not attempt to get bindings when Fragment views are destroyed.")
+        if (!getLifecycleOwner(thisRef).lifecycle
+            .currentState.isAtLeast(Lifecycle.State.INITIALIZED)
+        ) {
+            throw IllegalStateException(
+                "Should not attempt to get bindings when Fragment views are destroyed."
+            )
         }
 
         getLifecycleOwner(thisRef).lifecycle.addObserver(ViewBindingCleanupLifecycleObserver())
@@ -88,13 +92,14 @@ private class DialogFragmentViewBindingProperty<F : DialogFragment, T : ViewBind
  *
  * }
  * ```
- * [Source][https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c]
+ * [Source](http://bit.ly/3iz9VKO)
  * */
 @Suppress("unused")
 @JvmName("viewBindingFragment")
-fun <F : Fragment, T : ViewBinding> F.viewBinding(viewBinder: (View) -> T): ViewBindingProperty<F, T> {
-    return FragmentViewBindingProperty(viewBinder)
-}
+fun <F : Fragment, T : ViewBinding> F.viewBinding(viewBinder: (View) -> T):
+    ViewBindingProperty<F, T> {
+        return FragmentViewBindingProperty(viewBinder)
+    }
 
 /**
  * This class extends [ReadOnlyProperty] and serves as a delegate helper
@@ -118,10 +123,11 @@ fun <F : Fragment, T : ViewBinding> F.viewBinding(viewBinder: (View) -> T): View
  *
  * }
  * ```
- * [Source][https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c]
+ * [Source](http://bit.ly/3iz9VKO)
  * */
 @Suppress("unused")
 @JvmName("viewBindingDialogFragment")
-fun <F : DialogFragment, T : ViewBinding> F.dialogViewBinding(viewBinder: (View) -> T): ViewBindingProperty<F, T> {
-    return DialogFragmentViewBindingProperty(viewBinder)
-}
+fun <F : DialogFragment, T : ViewBinding> F.dialogViewBinding(viewBinder: (View) -> T):
+    ViewBindingProperty<F, T> {
+        return DialogFragmentViewBindingProperty(viewBinder)
+    }

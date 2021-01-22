@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+@file:Suppress("UNUSED_VARIABLE")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -14,9 +16,10 @@ buildscript {
     }
 }
 
+plugins.apply(ScriptsPlugins.gitHooks)
+
 plugins {
     buildSrcVersions
-    quality
 }
 
 allprojects {
@@ -25,8 +28,7 @@ allprojects {
         jcenter()
     }
 
-    plugins.apply(GradlePluginId.detekt)
-    plugins.apply(GradlePluginId.ktlint)
+    plugins.apply(ScriptsPlugins.quality)
 
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions.freeCompilerArgs +=

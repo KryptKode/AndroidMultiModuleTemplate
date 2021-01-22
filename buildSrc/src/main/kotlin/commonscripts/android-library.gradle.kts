@@ -5,7 +5,6 @@ plugins {
     `android-library` apply false
     `kotlin-android` apply false
     `kotlin-parcelize` apply false
-    id("com.vanniktech.android.junit.jacoco")
 }
 
 android {

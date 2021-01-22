@@ -18,8 +18,6 @@ object GradlePluginId {
     const val kotlin = "kotlin"
     const val daggerHilt = "dagger.hilt.android.plugin"
     const val jacoco = "com.vanniktech.android.junit.jacoco"
-    const val ktlint = "org.jlleitschuh.gradle.ktlint"
-    const val detekt = "io.gitlab.arturbosch.detekt"
 }
 
 val PluginDependenciesSpec.androidApplication: PluginDependencySpec

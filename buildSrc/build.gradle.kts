@@ -3,6 +3,10 @@ plugins {
     `kotlin-dsl-precompiled-script-plugins`
 }
 
+kotlinDslPluginOptions {
+    experimentalWarning.set(false)
+}
+
 repositories {
     jcenter()
     maven("https://plugins.gradle.org/m2/")

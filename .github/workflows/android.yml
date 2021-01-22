@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Run Detekt
-        run: ./gradlew detektAll
+        run: ./gradlew detekt
   ktlint:
     runs-on: ubuntu-latest
 
