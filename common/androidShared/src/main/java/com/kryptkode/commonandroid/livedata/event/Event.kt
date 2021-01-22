@@ -21,6 +21,19 @@ data class Event<out T>(private val content: T) {
     }
 
     /**
+     * Consumes the content if it's not been consumed yet and run the block [block].
+     */
+    fun consumeAndRun(block: (T?) -> Unit) {
+        if (!hasBeenHandled) {
+            block(getContentIfNotHandled())
+        }
+    }
+
+    fun consumeAndRunNonNull(block: (T) -> Unit) {
+        consumeAndRun { if (it != null) block(it) }
+    }
+
+    /**
      * Returns the content, even if it's already been handled.
      */
     fun peekContent(): T = content

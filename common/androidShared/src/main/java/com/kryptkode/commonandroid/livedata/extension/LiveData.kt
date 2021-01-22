@@ -8,6 +8,17 @@ import androidx.lifecycle.Transformations
 import com.kryptkode.commonandroid.livedata.event.Event
 import com.kryptkode.commonandroid.livedata.event.EventObserver
 
+typealias MutableLiveEvent<T> = MutableLiveData<Event<T>>
+
+typealias LiveEvent<T> = LiveData<Event<T>>
+
+/**
+ * Create an event with the provided [value] and set the value of this [MutableLiveEvent]
+ */
+fun <T> MutableLiveEvent<T>.publish(value: T) {
+    this.value = Event(value)
+}
+
 fun <T> MutableLiveData<T>.asLiveData(): LiveData<T> = this
 
 fun <T> LiveData<T>.observe(owner: LifecycleOwner, observer: (T) -> Unit) =
