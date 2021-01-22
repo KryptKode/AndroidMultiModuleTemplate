@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "e46ab71a67e09c02122a2bbcbbc87776",
+    "entities": [
+      {
+        "tableName": "characters",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`url` TEXT NOT NULL, `name` TEXT NOT NULL, `birth_year` TEXT NOT NULL, `height` TEXT NOT NULL, `home_world` TEXT NOT NULL, `films` TEXT NOT NULL, `species` TEXT NOT NULL, PRIMARY KEY(`url`))",
+        "fields": [
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "birthYear",
+            "columnName": "birth_year",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "height",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeWorld",
+            "columnName": "home_world",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "films",
+            "columnName": "films",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "species",
+            "columnName": "species",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "url"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e46ab71a67e09c02122a2bbcbbc87776')"
+    ]
+  }
+}
