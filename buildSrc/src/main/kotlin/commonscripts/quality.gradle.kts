@@ -16,7 +16,7 @@ val detektAll by tasks.registering(Detekt::class) {
     val outputFile = "${project.buildDir}/staticAnalysis/index.html"
 
     setSource(files(rootProject.projectDir))
-    config.setFrom("${project.rootDir}/config/detekt/detekt.yml")
+    config.setFrom("${project.rootDir}/.detekt/config.yml")
 
     include("**/*.kt")
     exclude("**/*.kts", "*/build/*", "/buildSrc")

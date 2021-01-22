@@ -16,7 +16,8 @@ buildscript {
 
 plugins {
     buildSrcVersions
-    id(ScriptsPlugins.quality)
+    quality
+    jacoco
 }
 
 allprojects {

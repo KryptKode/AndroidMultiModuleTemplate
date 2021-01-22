@@ -17,6 +17,7 @@ object GradlePluginId {
     internal const val kotlinKapt = "kotlin-kapt"
     internal const val kotlin = "kotlin"
     internal const val daggerHilt = "dagger.hilt.android.plugin"
+    internal const val jacoco = "com.vanniktech.android.junit.jacoco"
 }
 
 val PluginDependenciesSpec.androidApplication: PluginDependencySpec
@@ -24,6 +25,9 @@ val PluginDependenciesSpec.androidApplication: PluginDependencySpec
 
 val PluginDependenciesSpec.androidLibrary: PluginDependencySpec
     get() = id(ScriptsPlugins.androidLibrary)
+
+val PluginDependenciesSpec.quality: PluginDependencySpec
+    get() = id(ScriptsPlugins.quality)
 
 val PluginDependenciesSpec.kotlinAndroid: PluginDependencySpec
     get() = id(GradlePluginId.kotlinAndroid)
@@ -39,3 +43,6 @@ val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
 
 val PluginDependenciesSpec.daggerHilt: PluginDependencySpec
     get() = id(GradlePluginId.daggerHilt)
+
+val PluginDependenciesSpec.jacoco: PluginDependencySpec
+    get() = id(GradlePluginId.jacoco)
