@@ -5,7 +5,6 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 
-
 object StringListConverter {
 
     private val stringListType = Types.newParameterizedType(List::class.java, String::class.java)

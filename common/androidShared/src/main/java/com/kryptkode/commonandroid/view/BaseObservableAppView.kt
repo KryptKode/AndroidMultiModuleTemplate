@@ -1,8 +1,9 @@
 package com.kryptkode.commonandroid.view
 
-import java.util.*
+import java.util.Collections
 
-abstract class BaseObservableAppView<ListenerType> : BaseAppView(),
+abstract class BaseObservableAppView<ListenerType> :
+    BaseAppView(),
     ObservableAppView<ListenerType> {
     private val listenersSet: MutableSet<ListenerType> =
         HashSet()

@@ -7,7 +7,7 @@ class HttpsEnforcerInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val requestBuilder = request.newBuilder()
-        if(request.isHttps.not()){
+        if (request.isHttps.not()) {
             val newHttpsUrl = request.url.newBuilder().scheme("https").build()
             requestBuilder.url(newHttpsUrl)
         }

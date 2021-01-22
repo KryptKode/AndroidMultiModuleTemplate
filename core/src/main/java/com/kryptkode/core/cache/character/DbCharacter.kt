@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.kryptkode.core.cache.character.DbCharacter.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
-data class DbCharacter (
+data class DbCharacter(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = COLUMN_URL)
     val url: String,
@@ -17,7 +17,7 @@ data class DbCharacter (
     @ColumnInfo(name = COLUMN_FILMS) val films: List<String>,
     @ColumnInfo(name = COLUMN_SPECIES) val species: List<String>,
 
-    ) {
+) {
     companion object {
         const val TABLE_NAME = "characters"
         const val COLUMN_NAME = "name"

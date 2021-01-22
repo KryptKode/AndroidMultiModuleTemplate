@@ -14,7 +14,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface CacheModule {
 
-
     companion object {
 
         @Provides

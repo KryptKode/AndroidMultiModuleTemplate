@@ -14,7 +14,7 @@ fun Activity.hideKeyBoardOnTouchOfNonEditableViews() {
     val root = findViewById<ViewGroup>(android.R.id.content)
     for (view in root.children) {
         if (view !is TextInputLayout) {
-            view.setOnTouchListener {  _, _ ->
+            view.setOnTouchListener { _, _ ->
                 view.hideKeyboard()
                 false
             }

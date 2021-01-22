@@ -19,7 +19,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
     buildTypes {
         buildTypes {
             getByName(BuildTypes.RELEASE) {
@@ -51,8 +50,7 @@ dependencies {
     implementation(Libs.navigation_fragment_ktx)
     implementation(Libs.navigation_ui_ktx)
 
-    debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.6")
-
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.6")
 
     implementation(Libs.hilt_android)
     kapt(Libs.hilt_android_compiler)

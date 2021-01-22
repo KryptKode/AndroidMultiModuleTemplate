@@ -35,8 +35,6 @@ dependencies {
     implementation(Libs.room_runtime)
     kapt(Libs.room_compiler)
 
-
-
     implementation(Libs.okhttp)
     implementation(Libs.logging_interceptor)
 

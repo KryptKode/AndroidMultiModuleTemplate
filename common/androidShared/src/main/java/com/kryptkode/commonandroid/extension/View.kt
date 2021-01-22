@@ -31,12 +31,14 @@ fun View.beGone() {
 }
 
 fun View.onGlobalLayout(callback: () -> Unit) {
-    viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-        override fun onGlobalLayout() {
-            viewTreeObserver.removeOnGlobalLayoutListener(this)
-            callback()
+    viewTreeObserver.addOnGlobalLayoutListener(
+        object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                viewTreeObserver.removeOnGlobalLayoutListener(this)
+                callback()
+            }
         }
-    })
+    )
 }
 
 fun View.isVisible() = visibility == View.VISIBLE
@@ -80,24 +82,31 @@ fun View.requestApplyInsetsWhenAttached() {
     if (isAttachedToWindow) {
         requestApplyInsets()
     } else {
-        addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-            override fun onViewAttachedToWindow(v: View) {
-                v.requestApplyInsets()
-            }
+        addOnAttachStateChangeListener(
+            object : View.OnAttachStateChangeListener {
+                override fun onViewAttachedToWindow(v: View) {
+                    v.requestApplyInsets()
+                }
 
-            override fun onViewDetachedFromWindow(v: View) = Unit
-        })
+                override fun onViewDetachedFromWindow(v: View) = Unit
+            }
+        )
     }
 }
 
 @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-private fun createStateForView(view: View) = ViewPaddingState(view.paddingLeft,
-    view.paddingTop, view.paddingRight, view.paddingBottom, view.paddingStart, view.paddingEnd)
-
+private fun createStateForView(view: View) = ViewPaddingState(
+    view.paddingLeft,
+    view.paddingTop,
+    view.paddingRight,
+    view.paddingBottom,
+    view.paddingStart,
+    view.paddingEnd
+)
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE)
-            as InputMethodManager
+        as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
 

@@ -14,7 +14,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 abstract class ViewBindingProperty<in R : Fragment, T : ViewBinding>(
-        private val viewBinder: (View) -> T
+    private val viewBinder: (View) -> T
 ) : ReadOnlyProperty<R, T> {
 
     private var binding: T? = null
@@ -48,18 +48,17 @@ abstract class ViewBindingProperty<in R : Fragment, T : ViewBinding>(
             }
         }
     }
-
 }
 
 private class FragmentViewBindingProperty<F : Fragment, T : ViewBinding>(
-        viewBinder: (View) -> T
+    viewBinder: (View) -> T
 ) : ViewBindingProperty<F, T>(viewBinder) {
 
     override fun getLifecycleOwner(thisRef: F) = thisRef.viewLifecycleOwner
 }
 
 private class DialogFragmentViewBindingProperty<F : DialogFragment, T : ViewBinding>(
-        viewBinder: (View) -> T
+    viewBinder: (View) -> T
 ) : ViewBindingProperty<F, T>(viewBinder) {
 
     override fun getLifecycleOwner(thisRef: F): LifecycleOwner {

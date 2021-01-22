@@ -2,8 +2,8 @@ package com.kryptkode.commonandroid.logger
 
 import android.os.Build
 import com.kryptkode.commonandroid.BuildConfig
-import timber.log.Timber
 import java.util.regex.Pattern
+import timber.log.Timber
 
 /**
  * Created by kryptkode on 5/21/2020.

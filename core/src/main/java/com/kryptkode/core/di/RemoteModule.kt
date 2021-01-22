@@ -1,6 +1,5 @@
 package com.kryptkode.core.di
 
-
 import com.kryptkode.core.BuildConfig
 import com.kryptkode.core.remote.api.SwahPeeServiceApi
 import com.kryptkode.core.remote.api.SwahPeeServiceApiFactory

@@ -190,24 +190,25 @@ class ReadMoreTextView @JvmOverloads constructor(context: Context, attrs: Attrib
         }
     }
 
-
     private fun onGlobalLayoutLineEndIndex() {
         if (trimMode == TRIM_MODE_LINES) {
-            viewTreeObserver.addOnGlobalLayoutListener(object :
-                ViewTreeObserver.OnGlobalLayoutListener {
-                @SuppressLint("ObsoleteSdkInt")
-                @Suppress("DEPRECATION")
-                override fun onGlobalLayout() {
-                    val obs = viewTreeObserver
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        obs.removeOnGlobalLayoutListener(this)
-                    } else {
-                        obs.removeGlobalOnLayoutListener(this)
+            viewTreeObserver.addOnGlobalLayoutListener(
+                object :
+                    ViewTreeObserver.OnGlobalLayoutListener {
+                    @SuppressLint("ObsoleteSdkInt")
+                    @Suppress("DEPRECATION")
+                    override fun onGlobalLayout() {
+                        val obs = viewTreeObserver
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            obs.removeOnGlobalLayoutListener(this)
+                        } else {
+                            obs.removeGlobalOnLayoutListener(this)
+                        }
+                        refreshLineEndIndex()
+                        setText()
                     }
-                    refreshLineEndIndex()
-                    setText()
                 }
-            })
+            )
         }
     }
 
@@ -223,7 +224,6 @@ class ReadMoreTextView @JvmOverloads constructor(context: Context, attrs: Attrib
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
     }
 
     interface ReadMoreListener {

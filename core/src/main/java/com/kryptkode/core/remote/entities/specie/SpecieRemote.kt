@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 data class SpecieRemote(
     @field:Json(name = "name") val name: String,
     @field:Json(name = "language") val language: String,
-    @field:Json(name = "homeworld") val homeWorld: String?=""
+    @field:Json(name = "homeworld") val homeWorld: String? = ""
 )
