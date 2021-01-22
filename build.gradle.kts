@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+@file:Suppress("UNUSED_VARIABLE")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -14,10 +16,10 @@ buildscript {
     }
 }
 
+plugins.apply(ScriptsPlugins.gitHooks)
+
 plugins {
     buildSrcVersions
-    quality
-    jacoco
 }
 
 allprojects {
@@ -26,14 +28,16 @@ allprojects {
         jcenter()
     }
 
+    plugins.apply(ScriptsPlugins.quality)
+
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions.freeCompilerArgs +=
             "-Xuse-experimental=" +
-                    "kotlin.Experimental," +
-                    "kotlinx.coroutines.ExperimentalCoroutinesApi," +
-                    "kotlinx.coroutines.InternalCoroutinesApi," +
-                    "kotlinx.coroutines.ObsoleteCoroutinesApi," +
-                    "kotlinx.coroutines.FlowPreview"
+            "kotlin.Experimental," +
+            "kotlinx.coroutines.ExperimentalCoroutinesApi," +
+            "kotlinx.coroutines.InternalCoroutinesApi," +
+            "kotlinx.coroutines.ObsoleteCoroutinesApi," +
+            "kotlinx.coroutines.FlowPreview"
     }
 }
 
