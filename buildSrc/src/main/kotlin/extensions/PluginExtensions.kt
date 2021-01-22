@@ -26,6 +26,9 @@ val PluginDependenciesSpec.androidApplication: PluginDependencySpec
 val PluginDependenciesSpec.androidLibrary: PluginDependencySpec
     get() = id(ScriptsPlugins.androidLibrary)
 
+val PluginDependenciesSpec.quality: PluginDependencySpec
+    get() = id(ScriptsPlugins.quality)
+
 val PluginDependenciesSpec.kotlinAndroid: PluginDependencySpec
     get() = id(GradlePluginId.kotlinAndroid)
 
