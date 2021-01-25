@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(BuildModules.Commons.androidShared))
+    implementation(project(BuildModules.Common.androidShared))
 
     implementation(Libs.kotlinx_coroutines_android)
     implementation(Libs.kotlinx_coroutines_core)
