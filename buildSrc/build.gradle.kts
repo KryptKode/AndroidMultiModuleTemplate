@@ -19,6 +19,7 @@ object Dependencies {
     const val detektGradlePlugin = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.15.0"
     const val klintGradlePlugin = "org.jlleitschuh.gradle:ktlint-gradle:9.4.1"
     const val daggerHilt = "com.google.dagger:hilt-android-gradle-plugin:2.28.3-alpha"
+    const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.2"
     const val jacoco = "com.vanniktech:gradle-android-junit-jacoco-plugin:0.16.0"
 }
 
@@ -28,5 +29,6 @@ dependencies {
     implementation(Dependencies.detektGradlePlugin)
     implementation(Dependencies.klintGradlePlugin)
     implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.navigationSafeArgs)
     implementation(Dependencies.jacoco)
 }
