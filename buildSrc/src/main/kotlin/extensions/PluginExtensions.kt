@@ -17,6 +17,7 @@ object GradlePluginId {
     const val kotlinKapt = "kotlin-kapt"
     const val kotlin = "kotlin"
     const val daggerHilt = "dagger.hilt.android.plugin"
+    const val navigationSafeArgs = "androidx.navigation.safeargs"
     const val jacoco = "com.vanniktech.android.junit.jacoco"
 }
 
@@ -43,6 +44,9 @@ val PluginDependenciesSpec.kotlinKapt: PluginDependencySpec
 
 val PluginDependenciesSpec.daggerHilt: PluginDependencySpec
     get() = id(GradlePluginId.daggerHilt)
+
+val PluginDependenciesSpec.navigationSafeArgs: PluginDependencySpec
+    get() = id(GradlePluginId.navigationSafeArgs)
 
 val PluginDependenciesSpec.jacoco: PluginDependencySpec
     get() = id(GradlePluginId.jacoco)
