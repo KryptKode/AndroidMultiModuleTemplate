@@ -7,12 +7,6 @@
 
 # Android Multi-Module Template
 
-[![Actions Status](https://github.com/KryptKode/AndroidMultiModuleTemplate/workflows/android/badge.svg)](https://github.com/KryptKode/AndroidMultiModuleTemplate/actions)
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.4.21-blue.svg)](http://kotlinlang.org/)
-[![AGP](https://img.shields.io/badge/AGP-4.1.0-blue)](https://developer.android.com/studio/releases/gradle-plugin)
-[![Gradle](https://img.shields.io/badge/Gradle-6.5-blue)](https://gradle.org)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-
 A template for bootstrapping a multi-module android project. It demonstrates clean architecture and has a navigation module based on [this](https://github.com/PhilippeBoisney/android-multi-modules-navigation-demo)
 
 ## Top things to learn here
